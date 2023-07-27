@@ -14,11 +14,11 @@ class DashboardController extends Controller
 
         // ステータスによって条件分岐して遷移先のページを決定
         if ($status === '店長') {
-            return view('manager');
+            return view('manager/dashboard');
         } elseif ($status === '教育係') {
-            return view('trainer');
+            return view('trainer/dashboard');
         } elseif ($status === '新人') {
-            return view('newcomer');
+            return view('newcomer/dashboard');
         } else {
             return view('dashboard');
         }
