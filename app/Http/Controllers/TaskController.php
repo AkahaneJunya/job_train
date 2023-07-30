@@ -16,4 +16,9 @@ class TaskController extends Controller
         {
             return view('manager.tasks.show')->with(['task' => $task]);
         }
+        
+    public function create()
+        {
+            return view('manager.tasks.create');
+        }
 }

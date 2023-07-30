@@ -33,4 +33,6 @@ require __DIR__.'/auth.php';
 
 Route::get('/task', [TaskController::class, 'index'])->name('task');
 
+Route::get('/tasks/create', [TaskController::class, 'create']);
+
 Route::get('/tasks/{task}', [TaskController::class ,'show']);
