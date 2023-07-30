@@ -10,6 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h1>Task</h1>
+                    <a href='/tasks/create'>create</a>
                     <div class='tasks'>
                         @foreach ($tasks as $task)
                             <div class='task'>
@@ -17,10 +18,23 @@
                                     <a href="/tasks/{{ $task->id }}">{{ $task->name }}</a>
                                 </h2>
                                 <p class='detail'>{{ $task->detail }}</p>
+                                <form action="/tasks/{{ $task->id }}" id="form_{{ $task->id }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="button" onclick="deleteTask({{ $task->id }})">delete</button> 
+                                </form>
                             </div>
                         @endforeach
                     </div>
-                    <a href='/tasks/create'>create</a>
+                    <script>
+                        function deleteTask(id) {
+                            'use strict'
+                    
+                            if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                                document.getElementById(`form_${id}`).submit();
+                            }
+                        }
+                    </script>
                 </div>
             </div>
         </div>
