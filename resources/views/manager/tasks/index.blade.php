@@ -13,7 +13,9 @@
                     <div class='tasks'>
                         @foreach ($tasks as $task)
                             <div class='task'>
-                                <h2 class='name'>{{ $task->name }}</h2>
+                                <h2 class='name'>
+                                    <a href="/tasks/{{ $task->id }}">{{ $task->name }}</a>
+                                </h2>
                                 <p class='detail'>{{ $task->detail }}</p>
                             </div>
                         @endforeach
