@@ -21,4 +21,11 @@ class TaskController extends Controller
         {
             return view('manager.tasks.create');
         }
+        
+    public function store(Request $request, Task $task)
+        {
+            $input = $request['task'];
+            $task->fill($input)->save();
+            return redirect('/tasks/' . $task->id);
+        }
 }
