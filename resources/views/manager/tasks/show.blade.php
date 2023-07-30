@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <h1 class="title">
+                    <h1 class="name">
                         {{ $task->name }}
                     </h1>
                     <div class="detail">
@@ -18,6 +18,7 @@
                             <p>{{ $task->detail }}</p>    
                         </div>
                     </div>
+                    <div class="edit"><a href="/tasks/{{ $task->id }}/edit">edit</a></div>
                     <div class="footer">
                         <a href="/task">戻る</a>
                     </div>
