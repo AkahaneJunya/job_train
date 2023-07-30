@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Http\Requests\TaskRequest;
 
 class TaskController extends Controller
 {
@@ -22,7 +23,7 @@ class TaskController extends Controller
             return view('manager.tasks.create');
         }
         
-    public function store(Request $request, Task $task)
+    public function store(TaskRequest $request, Task $task)
         {
             $input = $request['task'];
             $task->fill($input)->save();
