@@ -9,6 +9,6 @@ class TaskController extends Controller
 {
     public function index(Task $task)
         {
-            return view('manager.task')->with(['tasks' => $task->get()]);
+            return view('manager.tasks.index')->with(['tasks' => $task->get()]);
         }
 }
