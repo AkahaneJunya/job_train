@@ -14,10 +14,10 @@
                         @foreach ($trainers as $trainer)
                             <div class='trainer'>
                                 <h2 class='name'>
-                                    {{ $trainer->user->name }}
+                                    <a href="/trainers/{{ $trainer->id }}">{{ $trainer->user->name }}</a>
                                 </h2>
                                 <h3>教育係登録日</h3>
-                                <p class='record-date'>{{ $trainer->record_date }}</p>
+                                <p class='record_date'>{{ $trainer->record_date }}</p>
                             </div>
                         @endforeach
                     </div>

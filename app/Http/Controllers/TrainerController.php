@@ -13,4 +13,9 @@ class TrainerController extends Controller
             
             return view('manager.trainers.index')->with(['trainers' => $trainer->get()]);
         }
+    
+    public function show(Trainer $trainer)
+        {
+            return view('manager.trainers.show')->with(['trainer' => $trainer]);
+        }
 }
