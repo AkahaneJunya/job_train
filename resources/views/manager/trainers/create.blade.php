@@ -14,19 +14,23 @@
                         @csrf
                         <div class="name">
                             <h2>Name</h2>
-                            <input type="text" name="name" placeholder="名前"/>
+                            <input type="text" name="name" placeholder="名前" value="{{ old('name') }}"/>
+                            <p class="name__error" style="color:red">{{ $errors->first('name') }}</p>
                         </div>
                         <div class="email">
                             <h2>Email</h2>
-                            <input type="email" name="email" placeholder="メールアドレス"/>
+                            <input type="email" name="email" placeholder="メールアドレス" value="{{ old('email') }}"/>
+                            <p class="email__error" style="color:red">{{ $errors->first('email') }}</p>
                         </div>
                         <div class="password">
                             <h2>Password</h2>
                             <input type="password" name="password" placeholder="パスワード"/>
+                            <p class="password__error" style="color:red">{{ $errors->first('password') }}</p>
                         </div>
                         <div class="record_date">
                             <h2>Record Date</h2>
-                            <input type="date" name="record_date"/>
+                            <input type="date" name="record_date"/ value="{{ old('record_date') }}">
+                            <p class="record_date__error" style="color:red">{{ $errors->first('record_date') }}</p>
                         </div>
                         <input type="submit" value="store"/>
                     </form>
