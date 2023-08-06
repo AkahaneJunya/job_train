@@ -10,11 +10,12 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h1>Trainer</h1>
+                    <a href='/manager/trainers/create'>create</a>
                     <div class='trainers'>
                         @foreach ($trainers as $trainer)
                             <div class='trainer'>
                                 <h2 class='name'>
-                                    <a href="/trainers/{{ $trainer->id }}">{{ $trainer->user->name }}</a>
+                                    <a href="/manager/trainers/{{ $trainer->id }}">{{ $trainer->user->name }}</a>
                                 </h2>
                                 <h3>教育係登録日</h3>
                                 <p class='record_date'>{{ $trainer->record_date }}</p>

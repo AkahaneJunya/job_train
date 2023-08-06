@@ -41,4 +41,6 @@ Route::put('/tasks/{task}', [TaskController::class, 'update']);
 Route::delete('/tasks/{task}', [TaskController::class,'delete']);
 
 Route::get('/manager/trainer', [TrainerController::class, 'index'])->name('manager/trainer');
-Route::get('/trainers/{trainer}', [TrainerController::class ,'show']);
+Route::get('/manager/trainers/create', [TrainerController::class, 'create']);
+Route::post('/manager/trainers', [TrainerController::class, 'store']);
+Route::get('/manager/trainers/{trainer}', [TrainerController::class ,'show']);
