@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Trainer;
 use App\Http\Requests\TrainerStoreRequest;
+use App\Http\Requests\TrainerUpdateRequest;
 
 class TrainerController extends Controller
 {
@@ -44,6 +45,24 @@ class TrainerController extends Controller
     
             $trainer->save();
     
+            return redirect('/manager/trainers/' . $trainer->id);
+        }
+    
+    public function edit(Trainer $trainer)
+        {
+            return view('manager.trainers.edit')->with(['trainer' => $trainer]);
+        }
+    
+    public function update(Trainer $trainer , TrainerUpdateRequest $request)
+        {
+            $user = $trainer->user;
+            $user->name = $request['name'];
+            $user->email = $request['email'];
+            $user->save();
+            
+            $trainer->record_date = $request['record_date'];
+            $trainer->save();
+            
             return redirect('/manager/trainers/' . $trainer->id);
         }
 }

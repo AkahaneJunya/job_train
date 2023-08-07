@@ -16,6 +16,7 @@
                         <h3>教育係登録日</h3>
                         <p>{{ $trainer->record_date }}</p>    
                     </div>
+                    <div class="edit"><a href="/manager/trainers/{{ $trainer->id }}/edit">edit</a></div>
                     <div class="footer">
                         <a href="/manager/trainer">戻る</a>
                     </div>

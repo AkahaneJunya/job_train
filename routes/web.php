@@ -44,3 +44,5 @@ Route::get('/manager/trainer', [TrainerController::class, 'index'])->name('manag
 Route::get('/manager/trainers/create', [TrainerController::class, 'create']);
 Route::post('/manager/trainers', [TrainerController::class, 'store']);
 Route::get('/manager/trainers/{trainer}', [TrainerController::class ,'show']);
+Route::get('/manager/trainers/{trainer}/edit', [TrainerController::class, 'edit']);
+Route::put('/manager/trainers/{trainer}', [TrainerController::class, 'update']);
