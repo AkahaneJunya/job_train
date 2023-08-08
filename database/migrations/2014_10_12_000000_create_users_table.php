@@ -22,6 +22,7 @@ return new class extends Migration
             $table->enum('status', ['店長', '教育係', '新人']);
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

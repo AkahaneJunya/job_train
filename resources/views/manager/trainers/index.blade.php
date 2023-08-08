@@ -19,9 +19,23 @@
                                 </h2>
                                 <h3>教育係登録日</h3>
                                 <p class='record_date'>{{ $trainer->record_date }}</p>
+                                <form action="/manager/trainers/{{ $trainer->id }}" id="form_{{ $trainer->id }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="button" onclick="deleteTrainer({{ $trainer->id }})">delete</button> 
+                                </form>
                             </div>
                         @endforeach
                     </div>
+                    <script>
+                        function deleteTrainer(id) {
+                            'use strict'
+                    
+                            if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                                document.getElementById(`form_${id}`).submit();
+                            }
+                        }
+                    </script>
                 </div>
             </div>
         </div>

@@ -65,4 +65,12 @@ class TrainerController extends Controller
             
             return redirect('/manager/trainers/' . $trainer->id);
         }
+        
+    public function delete(Trainer $trainer)
+        {
+            $trainer->delete();
+            $trainer->user->delete();
+            
+            return redirect('/manager/trainer');
+        }
 }

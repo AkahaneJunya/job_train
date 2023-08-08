@@ -46,3 +46,4 @@ Route::post('/manager/trainers', [TrainerController::class, 'store']);
 Route::get('/manager/trainers/{trainer}', [TrainerController::class ,'show']);
 Route::get('/manager/trainers/{trainer}/edit', [TrainerController::class, 'edit']);
 Route::put('/manager/trainers/{trainer}', [TrainerController::class, 'update']);
+Route::delete('/manager/trainers/{trainer}', [TrainerController::class,'delete']);
