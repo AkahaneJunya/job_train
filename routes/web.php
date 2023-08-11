@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TrainerController;
+use App\Http\Controllers\NewcomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,5 @@ Route::get('/manager/trainers/{trainer}', [TrainerController::class ,'show']);
 Route::get('/manager/trainers/{trainer}/edit', [TrainerController::class, 'edit']);
 Route::put('/manager/trainers/{trainer}', [TrainerController::class, 'update']);
 Route::delete('/manager/trainers/{trainer}', [TrainerController::class,'delete']);
+
+Route::get('/manager/newcomer', [NewcomerController::class, 'index'])->name('manager/newcomer');
