@@ -14,13 +14,13 @@
                         @csrf
                         <div class="name">
                             <h2>Name</h2>
-                            <input type="text" name="task[name]" placeholder="業務名" value="{{ old('task.name') }}"/>
-                            <p class="name__error" style="color:red">{{ $errors->first('task.name') }}</p>
+                            <input type="text" name="name" placeholder="業務名" value="{{ old('name') }}"/>
+                            <p class="name__error" style="color:red">{{ $errors->first('name') }}</p>
                         </div>
                         <div class="detail">
                             <h2>Detail</h2>
-                            <textarea name="task[detail]" placeholder="業務の詳細、注意点">{{ old('task.detail') }}</textarea>
-                            <p class="detail__error" style="color:red">{{ $errors->first('task.detail') }}</p>
+                            <textarea name="detail" placeholder="業務の詳細、注意点">{{ old('detail') }}</textarea>
+                            <p class="detail__error" style="color:red">{{ $errors->first('detail') }}</p>
                         </div>
                         <input type="submit" value="store"/>
                     </form>
