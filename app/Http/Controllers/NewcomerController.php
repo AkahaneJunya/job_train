@@ -13,4 +13,9 @@ class NewcomerController extends Controller
 
             return view('manager.newcomers.index')->with(['newcomers' => $newcomer->get()]);
         }
+        
+    public function show(Newcomer $newcomer)
+        {
+            return view('manager.newcomers.show')->with(['newcomer' => $newcomer]);
+        }
 }

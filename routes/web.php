@@ -50,3 +50,4 @@ Route::put('/manager/trainers/{trainer}', [TrainerController::class, 'update']);
 Route::delete('/manager/trainers/{trainer}', [TrainerController::class,'delete']);
 
 Route::get('/manager/newcomer', [NewcomerController::class, 'index'])->name('manager/newcomer');
+Route::get('/manager/newcomers/{newcomer}', [NewcomerController::class ,'show']);
