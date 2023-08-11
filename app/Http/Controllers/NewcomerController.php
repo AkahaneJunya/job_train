@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Newcomer;
 use App\Models\User;
+use App\Http\Requests\NewcomerStoreRequest;
 
 class NewcomerController extends Controller
 {
@@ -25,7 +26,7 @@ class NewcomerController extends Controller
             return view('manager.newcomers.create');
         }
 
-    public function store(Request $request)
+    public function store(NewcomerStoreRequest $request)
         {
             $user = new User([
                 'name' => $request->input('name'),
