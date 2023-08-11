@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Newcomer;
 use App\Models\User;
 use App\Http\Requests\NewcomerStoreRequest;
+use App\Http\Requests\NewcomerUpdateRequest;
 
 class NewcomerController extends Controller
 {
@@ -42,6 +43,24 @@ class NewcomerController extends Controller
                 'user_id' => $user->id
             ]);
 
+            $newcomer->save();
+
+            return redirect('/manager/newcomers/' . $newcomer->id);
+        }
+        
+    public function edit(Newcomer $newcomer)
+        {
+            return view('manager.newcomers.edit')->with(['newcomer' => $newcomer]);
+        }
+
+    public function update(Newcomer $newcomer , NewcomerUpdateRequest $request)
+        {
+            $user = $newcomer->user;
+            $user->name = $request['name'];
+            $user->email = $request['email'];
+            $user->save();
+
+            $newcomer->entering_date = $request['entering_date'];
             $newcomer->save();
 
             return redirect('/manager/newcomers/' . $newcomer->id);

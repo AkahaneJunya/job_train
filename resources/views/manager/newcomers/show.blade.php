@@ -16,6 +16,7 @@
                         <h3>新人入社日</h3>
                         <p>{{ $newcomer->entering_date }}</p>    
                     </div>
+                    <div class="edit"><a href="/manager/newcomers/{{ $newcomer->id }}/edit">edit</a></div>
                     <div class="footer">
                         <a href="/manager/newcomer">戻る</a>
                     </div>

@@ -53,3 +53,5 @@ Route::get('/manager/newcomer', [NewcomerController::class, 'index'])->name('man
 Route::get('/manager/newcomers/create', [NewcomerController::class, 'create']);
 Route::post('/manager/newcomers', [NewcomerController::class, 'store']);
 Route::get('/manager/newcomers/{newcomer}', [NewcomerController::class ,'show']);
+Route::get('/manager/newcomers/{newcomer}/edit', [NewcomerController::class, 'edit']);
+Route::put('/manager/newcomers/{newcomer}', [NewcomerController::class, 'update']);
