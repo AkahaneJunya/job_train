@@ -10,6 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h1>Newcomer</h1>
+                    <a href='/manager/newcomers/create'>create</a>
                     <div class='newcomers'>
                         @foreach ($newcomers as $newcomer)
                             <div class='newcomer'>
