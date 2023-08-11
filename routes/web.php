@@ -32,13 +32,13 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/task', [TaskController::class, 'index'])->name('task');
-Route::get('/tasks/create', [TaskController::class, 'create']);
-Route::post('/tasks', [TaskController::class, 'store']);
-Route::get('/tasks/{task}', [TaskController::class ,'show']);
-Route::get('/tasks/{task}/edit', [TaskController::class, 'edit']);
-Route::put('/tasks/{task}', [TaskController::class, 'update']);
-Route::delete('/tasks/{task}', [TaskController::class,'delete']);
+Route::get('/manager/task', [TaskController::class, 'index'])->name('task');
+Route::get('/manager/tasks/create', [TaskController::class, 'create']);
+Route::post('/manager/tasks', [TaskController::class, 'store']);
+Route::get('/manager/tasks/{task}', [TaskController::class ,'show']);
+Route::get('/manager/tasks/{task}/edit', [TaskController::class, 'edit']);
+Route::put('/manager/tasks/{task}', [TaskController::class, 'update']);
+Route::delete('/manager/tasks/{task}', [TaskController::class,'delete']);
 
 Route::get('/manager/trainer', [TrainerController::class, 'index'])->name('manager/trainer');
 Route::get('/manager/trainers/create', [TrainerController::class, 'create']);

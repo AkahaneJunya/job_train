@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     <h1 class="title">編集画面</h1>
                     <div class="content">
-                        <form action="/tasks/{{ $task->id }}" method="POST">
+                        <form action="/manager/tasks/{{ $task->id }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class='content__name'>
@@ -25,7 +25,7 @@
                             <input type="submit" value="保存">
                         </form>
                         <div class="footer">
-                            <a href="/tasks/{{ $task->id }}">戻る</a>
+                            <a href="/manager/tasks/{{ $task->id }}">戻る</a>
                         </div>
                     </div>
                 </div>

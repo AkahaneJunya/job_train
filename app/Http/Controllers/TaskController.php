@@ -31,7 +31,7 @@ class TaskController extends Controller
             ]);
             $task->save();
             
-            return redirect('/tasks/' . $task->id);
+            return redirect('/manager/tasks/' . $task->id);
         }
     
     public function edit(Task $task)
@@ -45,12 +45,12 @@ class TaskController extends Controller
             $task->detail = $request->input('detail');
             $task->save();
         
-            return redirect('/tasks/' . $task->id);
+            return redirect('/manager/tasks/' . $task->id);
         }
         
     public function delete(Task $task)
         {
             $task->delete();
-            return redirect('/task');
+            return redirect('/manager/task');
         }
 }

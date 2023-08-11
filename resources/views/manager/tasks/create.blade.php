@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h1>Task</h1>
-                    <form action="/tasks" method="POST">
+                    <form action="/manager/tasks" method="POST">
                         @csrf
                         <div class="name">
                             <h2>Name</h2>
@@ -25,7 +25,7 @@
                         <input type="submit" value="store"/>
                     </form>
                     <div class="footer">
-                        <a href="/task">戻る</a>
+                        <a href="/manager/task">戻る</a>
                     </div>
                 </div>
             </div>

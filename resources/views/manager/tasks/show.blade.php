@@ -18,9 +18,9 @@
                             <p>{{ $task->detail }}</p>    
                         </div>
                     </div>
-                    <div class="edit"><a href="/tasks/{{ $task->id }}/edit">edit</a></div>
+                    <div class="edit"><a href="/manager/tasks/{{ $task->id }}/edit">edit</a></div>
                     <div class="footer">
-                        <a href="/task">戻る</a>
+                        <a href="/manager/task">戻る</a>
                     </div>
                 </div>
             </div>
