@@ -25,8 +25,12 @@ class TaskController extends Controller
         
     public function store(TaskRequest $request, Task $task)
         {
-            $input = $request['task'];
-            $task->fill($input)->save();
+            $task = new Task([
+                'name' => $request->input('name'),
+                'detail' => $request->input('detail'),
+            ]);
+            $task->save();
+            
             return redirect('/tasks/' . $task->id);
         }
     
@@ -37,8 +41,9 @@ class TaskController extends Controller
     
     public function update(TaskRequest $request, Task $task)
         {
-            $input_task = $request['task'];
-            $task->fill($input_task)->save();
+            $task->name = $request->input('name');
+            $task->detail = $request->input('detail');
+            $task->save();
         
             return redirect('/tasks/' . $task->id);
         }

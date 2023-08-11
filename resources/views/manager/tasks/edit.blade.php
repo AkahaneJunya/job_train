@@ -16,11 +16,11 @@
                             @method('PUT')
                             <div class='content__name'>
                                 <h2>タイトル</h2>
-                                <input type='text' name='task[name]' value="{{ $task->name }}">
+                                <input type='text' name='name' value="{{ $task->name }}">
                             </div>
                             <div class='content__detail'>
                                 <h2>本文</h2>
-                                <input type='text' name='task[detail]' value="{{ $task->detail }}">
+                                <input type='text' name='detail' value="{{ $task->detail }}">
                             </div>
                             <input type="submit" value="保存">
                         </form>
