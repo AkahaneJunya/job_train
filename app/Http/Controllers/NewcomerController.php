@@ -65,4 +65,12 @@ class NewcomerController extends Controller
 
             return redirect('/manager/newcomers/' . $newcomer->id);
         }
+        
+     public function delete(Newcomer $newcomer)
+        {
+            $newcomer->delete();
+            $newcomer->user->delete();
+
+            return redirect('/manager/newcomer');
+        }
 }

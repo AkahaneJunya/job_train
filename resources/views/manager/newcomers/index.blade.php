@@ -19,9 +19,23 @@
                                 </h2>
                                 <h3>新人入社日</h3>
                                 <p class='entering_date'>{{ $newcomer->entering_date }}</p>
+                                <form action="/manager/newcomers/{{ $newcomer->id }}" id="form_{{ $newcomer->id }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="button" onclick="deleteNewcomer({{ $newcomer->id }})">delete</button> 
+                                </form>
                             </div>
                         @endforeach
                     </div>
+                    <script>
+                        function deleteNewcomer(id) {
+                            'use strict'
+                    
+                            if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                                document.getElementById(`form_${id}`).submit();
+                            }
+                        }
+                    </script>
                 </div>
             </div>
         </div>
