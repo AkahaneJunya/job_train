@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('manager/newcomer')" :active="request()->routeIs('manager/newcomer')">
                         {{ __('Newcomer') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('trainer/newcomer')" :active="request()->routeIs('trainer/newcomer')">
+                        {{ __('Rating') }}
+                    </x-nav-link>
                 </div>
             </div>
 

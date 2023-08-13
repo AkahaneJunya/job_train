@@ -85,4 +85,9 @@ class NewcomerController extends Controller
 
             return redirect('/manager/newcomer');
         }
+        
+    public function trainerIndex(Newcomer $newcomer)
+        {
+            return view('trainer.newcomers.index')->with(['newcomers' => $newcomer->get()]);
+        }
 }
