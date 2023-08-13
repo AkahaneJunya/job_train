@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Models\Newcomer;
+use App\Models\Rating;
 use App\Http\Requests\TaskRequest;
 
 class TaskController extends Controller
@@ -30,6 +32,16 @@ class TaskController extends Controller
                 'detail' => $request->input('detail'),
             ]);
             $task->save();
+            
+            $newcomers = Newcomer::all();
+            foreach ($newcomers as $newcomer) {
+                Rating::create([
+                    'newcomer_id' => $newcomer->id,
+                    'task_id' => $task->id,
+                    'trainer_rate' => 0,
+                    'newcomer_rate' => 0,
+                ]);
+            }
             
             return redirect('/manager/tasks/' . $task->id);
         }
