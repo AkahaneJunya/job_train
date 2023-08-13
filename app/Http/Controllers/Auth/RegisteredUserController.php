@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Models\Trainer;
+use App\Models\Newcomer;
 
 class RegisteredUserController extends Controller
 {
@@ -34,13 +36,27 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'status' => ['required', 'in:店長,教育係,新人'],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'status' => $request->status,
         ]);
+        
+        if ($request->status === '教育係') {
+            $trainer = Trainer::create([
+                'user_id' => $user->id,
+                'record_date' => now()->format('Y-m-d'),
+            ]);
+        } elseif ($request->status === '新人') {
+            $newcomer = Newcomer::create([
+                'user_id' => $user->id,
+                'entering_date' => now()->format('Y-m-d'),
+            ]);
+        }
 
         event(new Registered($user));
 
