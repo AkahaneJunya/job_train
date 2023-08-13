@@ -14,6 +14,8 @@ use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use App\Models\Trainer;
 use App\Models\Newcomer;
+use App\Models\Task;
+use App\Models\Rating;
 
 class RegisteredUserController extends Controller
 {
@@ -56,6 +58,16 @@ class RegisteredUserController extends Controller
                 'user_id' => $user->id,
                 'entering_date' => now()->format('Y-m-d'),
             ]);
+            
+            $tasks = Task::all();
+            foreach ($tasks as $task) {
+                Rating::create([
+                    'newcomer_id' => $newcomer->id,
+                    'task_id' => $task->id,
+                    'trainer_rate' => 0,
+                    'newcomer_rate' => 0,
+                ]);
+            }
         }
 
         event(new Registered($user));

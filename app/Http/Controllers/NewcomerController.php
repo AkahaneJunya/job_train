@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Newcomer;
 use App\Models\User;
+use App\Models\Task;
+use App\Models\Rating;
 use App\Http\Requests\NewcomerStoreRequest;
 use App\Http\Requests\NewcomerUpdateRequest;
 
@@ -44,6 +46,16 @@ class NewcomerController extends Controller
             ]);
 
             $newcomer->save();
+            
+            $tasks = Task::all();
+            foreach ($tasks as $task) {
+                Rating::create([
+                    'newcomer_id' => $newcomer->id,
+                    'task_id' => $task->id,
+                    'trainer_rate' => 0,
+                    'newcomer_rate' => 0,
+                ]);
+            }
 
             return redirect('/manager/newcomers/' . $newcomer->id);
         }
