@@ -4,7 +4,7 @@
             {{ __('Rating') }}
         </h2>
     </x-slot>
-    
+
    <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -17,18 +17,19 @@
                                     {{ $rating->task->name }}
                                 </h2>
                                 <p class='detail'>{{ $rating->task->detail }}</p>
+                                <h3>Trainer Rate</h3>
                                 <form method="POST" action="/trainer/newcomers/{{ $rating->id }}/update">
-                                    @method('PUT')
                                     @csrf
+                                    @method('PUT')
                                     <input type="hidden" name="newcomer" value="{{ $newcomer->id }}">
-                                    <select name="trainer_rate" id="trainer_rate">
+                                    <select name="trainer_rate" class="trainer_rate">
                                         @for ($i = 0; $i <= 5; $i++)
                                             <option value="{{ $i }}" {{ old('trainer_rate', $rating->trainer_rate) == $i ? 'selected' : '' }}>{{ $i }}</option>
                                         @endfor
                                     </select>
                                     <button type="submit">評価更新</button>
                                 </form>
-                                <p class="newcomer_rate">Newcomer Rate: {{ $ratings->where('task_id', $rating->task->id)->first()->newcomer_rate }}</p>
+                                <p class="newcomer_rate">Newcomer Rate {{ $ratings->where('task_id', $rating->task->id)->first()->newcomer_rate }}</p>
                             </div>
                         @endforeach
                     </div>

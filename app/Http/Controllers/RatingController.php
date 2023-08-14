@@ -16,7 +16,7 @@ class RatingController extends Controller
         
     public function trainerRatingIndex(Task $task, Newcomer $newcomer, Rating $rating)
         {
-            return view('trainer.tasks.index', [
+            return view('trainer.ratings.index', [
                 'tasks' => $task->get(),
                 'newcomer' => $newcomer,
                 'ratings' => $newcomer->getByNewcomer(),
