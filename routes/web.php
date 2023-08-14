@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\NewcomerController;
+use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +59,4 @@ Route::put('/manager/newcomers/{newcomer}', [NewcomerController::class, 'update'
 Route::delete('/manager/newcomers/{newcomer}', [NewcomerController::class,'delete']);
 
 Route::get('/trainer/newcomer', [NewcomerController::class, 'trainerIndex'])->name('trainer/newcomer');
+Route::get('/trainer/newcomers/{newcomer}/rating', [RatingController::class ,'trainerIndex']);

@@ -14,7 +14,7 @@
                         @foreach ($newcomers as $newcomer)
                             <div class='newcomer'>
                                 <h2 class='name'>
-                                   {{ $newcomer->user->name }}
+                                    <a href="/trainer/newcomers/{{ $newcomer->id }}/rating">{{ $newcomer->user->name }}</a>
                                 </h2>
                                 <h3>新人入社日</h3>
                                 <p class='entering_date'>{{ $newcomer->entering_date }}</p>
