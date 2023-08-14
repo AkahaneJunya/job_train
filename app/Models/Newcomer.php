@@ -23,7 +23,7 @@ class Newcomer extends Model
     
     public function ratings()
     {
-        return $this->hasMany(Rating::class);
+        return $this->hasMany(Rating::class)->orderBy('task_id', 'asc');
     }
     
     public function getByNewcomer()
