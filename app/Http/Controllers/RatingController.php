@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Models\Newcomer;
 use App\Models\Rating;
-use Illuminate\Http\Request;
 
 class RatingController extends Controller
 {
-    public function trainerIndex(Task $task, Newcomer $newcomer, Rating $rating)
+    public function newcomerIndex(Newcomer $newcomer)
+        {
+            return view('trainer.newcomers.index')->with(['newcomers' => $newcomer->get()]);
+        }
+        
+    public function trainerRatingIndex(Task $task, Newcomer $newcomer, Rating $rating)
         {
             return view('trainer.tasks.index', [
                 'tasks' => $task->get(),
