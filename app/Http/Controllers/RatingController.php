@@ -11,12 +11,20 @@ class RatingController extends Controller
 {
     public function trainerIndex(Task $task, Newcomer $newcomer, Rating $rating)
         {
-            $ratings = $rating->where('newcomer_id', $newcomer->id)->get();
-            
             return view('trainer.tasks.index', [
                 'tasks' => $task->get(),
                 'newcomer' => $newcomer,
-                'ratings' => $ratings,
+                'ratings' => $newcomer->getByNewcomer(),
             ]);
+        }
+        
+    public function updateTrainerRating(Request $request, Rating $rating)
+        {
+            $rating->trainer_rate = $request['trainer_rate'];
+            $rating->save();
+            
+            $newcomer = $request['newcomer'];
+            
+            return redirect('/trainer/newcomers/' . $newcomer . '/rating');
         }
 }

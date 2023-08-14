@@ -12,12 +12,18 @@ class Rating extends Model
     protected $fillable = [
         'newcomer_id',
         'task_id',
-        'newcomer_rating',
-        'trainer_rating',
+        'newcomer_rate',
+        'trainer_rate',
     ];
     
     public function newcomer()
     {
-        return $this->belongsTo(Newcomer::class);
+        return $this->belongsTo(Newcomer::class, 'newcomer_id', 'id');
     }
+    
+    public function task()
+    {
+        return $this->belongsTo(Task::class, 'task_id', 'id');
+    }
+    
 }

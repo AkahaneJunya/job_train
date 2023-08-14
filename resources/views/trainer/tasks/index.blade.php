@@ -11,14 +11,24 @@
                 <div class="p-6 text-gray-900">
                     <h1>{{ $newcomer->user->name }}</h1>
                     <div class='tasks'>
-                        @foreach ($tasks as $task)
-                            <div class='task'>
-                                <h2 class='name'>
-                                    {{ $task->name }}
+                        @foreach ($ratings as $rating)
+                            <div class='rating'>
+                                <h2 class='task_name'>
+                                    {{ $rating->task->name }}
                                 </h2>
-                                <p class='detail'>{{ $task->detail }}</p>
-                                <p class="trainer_rate">Trainer Rate: {{ $ratings->where('task_id', $task->id)->first()->trainer_rate }}</p>
-                                <p class="newcomer_rate">Newcomer Rate: {{ $ratings->where('task_id', $task->id)->first()->newcomer_rate }}</p>
+                                <p class='detail'>{{ $rating->task->detail }}</p>
+                                <form method="POST" action="/trainer/newcomers/{{ $rating->id }}/update">
+                                    @method('PUT')
+                                    @csrf
+                                    <input type="hidden" name="newcomer" value="{{ $newcomer->id }}">
+                                    <select name="trainer_rate" id="trainer_rate">
+                                        @for ($i = 0; $i <= 5; $i++)
+                                            <option value="{{ $i }}" {{ old('trainer_rate', $rating->trainer_rate) == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                        @endfor
+                                    </select>
+                                    <button type="submit">評価更新</button>
+                                </form>
+                                <p class="newcomer_rate">Newcomer Rate: {{ $ratings->where('task_id', $rating->task->id)->first()->newcomer_rate }}</p>
                             </div>
                         @endforeach
                     </div>
