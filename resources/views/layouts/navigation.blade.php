@@ -15,21 +15,27 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('task')" :active="request()->routeIs('task')">
-                        {{ __('Task') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('manager/trainer')" :active="request()->routeIs('manager/trainer')">
-                        {{ __('Trainer') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('manager/newcomer')" :active="request()->routeIs('manager/newcomer')">
-                        {{ __('Newcomer') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('trainer/newcomer')" :active="request()->routeIs('trainer/newcomer')">
-                        {{ __('Rating') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('newcomer/rating')" :active="request()->routeIs('newcomer/rating')">
-                        {{ __('Rating') }}
-                    </x-nav-link>
+                    @if (auth()->check())
+                        @if (auth()->user()->status == '店長')
+                            <x-nav-link :href="route('task')" :active="request()->routeIs('task')">
+                                {{ __('Task') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('manager/trainer')" :active="request()->routeIs('manager/trainer')">
+                                {{ __('Trainer') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('manager/newcomer')" :active="request()->routeIs('manager/newcomer')">
+                                {{ __('Newcomer') }}
+                            </x-nav-link>
+                        @elseif (auth()->user()->status == '教育係')
+                            <x-nav-link :href="route('trainer/newcomer')" :active="request()->routeIs('trainer/newcomer')">
+                                {{ __('Rating') }}
+                            </x-nav-link>
+                        @elseif (auth()->user()->status == '新人')
+                            <x-nav-link :href="route('newcomer/rating')" :active="request()->routeIs('newcomer/rating')">
+                                {{ __('Rating') }}
+                            </x-nav-link>
+                        @endif
+                    @endif
                 </div>
             </div>
 
