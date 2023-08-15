@@ -45,4 +45,12 @@ class RatingController extends Controller
                 'ratings' => $newcomer->getByNewcomer(),
             ]);
         }
+        
+    public function updateNewcomerRating(Request $request, Rating $rating)
+        {
+            $rating->newcomer_rate = $request['newcomer_rate'];
+            $rating->save();
+
+            return redirect('/newcomer/rating');
+        }
 }

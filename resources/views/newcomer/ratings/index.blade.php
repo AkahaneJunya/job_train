@@ -17,7 +17,18 @@
                                     {{ $rating->task->name }}
                                 </h2>
                                 <p class='detail'>{{ $rating->task->detail }}</p>
-                                <p class="newcomer_rate">Newcomer Rate {{ $ratings->where('task_id', $rating->task->id)->first()->newcomer_rate }}</p>
+                                <h3>Newcomer Rate</h3>
+                                <form method="POST" action="/newcomer/{{ $rating->id }}/update">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="newcomer" value="{{ $newcomer->id }}">
+                                    <select name="newcomer_rate" class="newcomer_rate">
+                                        @for ($i = 0; $i <= 5; $i++)
+                                            <option value="{{ $i }}" {{ old('newcomer_rate', $rating->newcomer_rate) == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                        @endfor
+                                    </select>
+                                    <button type="submit">評価更新</button>
+                                </form>
                                 <p class="trainer_rate">Trainer Rate {{ $ratings->where('task_id', $rating->task->id)->first()->trainer_rate }}</p>
                             </div>
                         @endforeach

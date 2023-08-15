@@ -63,3 +63,4 @@ Route::get('/trainer/newcomers/{newcomer}/rating', [RatingController::class ,'tr
 Route::put('/trainer/newcomers/{rating}/update', [RatingController::class, 'updateTrainerRating']);
 
 Route::get('/newcomer/rating', [RatingController::class, 'newcomerRatingIndex'])->name('newcomer/rating');
+Route::put('/newcomer/{rating}/update', [RatingController::class, 'updateNewcomerRating']);
