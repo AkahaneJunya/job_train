@@ -61,3 +61,5 @@ Route::delete('/manager/newcomers/{newcomer}', [NewcomerController::class,'delet
 Route::get('/trainer/newcomer', [RatingController::class, 'newcomerIndex'])->name('trainer/newcomer');
 Route::get('/trainer/newcomers/{newcomer}/rating', [RatingController::class ,'trainerRatingIndex']);
 Route::put('/trainer/newcomers/{rating}/update', [RatingController::class, 'updateTrainerRating']);
+
+Route::get('/newcomer/rating', [RatingController::class, 'newcomerRatingIndex'])->name('newcomer/rating');

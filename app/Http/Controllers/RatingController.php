@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Models\Newcomer;
 use App\Models\Rating;
+use Illuminate\Support\Facades\Auth;
 
 class RatingController extends Controller
 {
@@ -31,5 +32,17 @@ class RatingController extends Controller
             $newcomer = $request['newcomer'];
             
             return redirect('/trainer/newcomers/' . $newcomer . '/rating');
+        }
+        
+    public function newcomerRatingIndex(Task $task, Newcomer $newcomer, Rating $rating)
+        {
+            $userId = Auth::user()->id;
+            $newcomer = Newcomer::where('user_id', $userId)->first();
+            
+            return view('newcomer.ratings.index', [
+                'tasks' => $task->get(),
+                'newcomer' => $newcomer,
+                'ratings' => $newcomer->getByNewcomer(),
+            ]);
         }
 }
