@@ -46,6 +46,12 @@
                 </div>
             @endif
         </div>
+        
+        <div>
+            <x-input-label for="status" :value="__('Status')" />
+            <x-text-input id="status" name="status" type="text" class="mt-1 block w-full" value="{{ $status }}" readonly />
+            <p class="text-gray-500 mt-2">{{ __('Cannot change status') }}</p>
+        </div>
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>

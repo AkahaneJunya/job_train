@@ -16,8 +16,11 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $status=Auth::user()->status;
+        
         return view('profile.edit', [
             'user' => $request->user(),
+            'status' => $status,
         ]);
     }
 
