@@ -63,6 +63,7 @@ class TaskController extends Controller
     public function delete(Task $task)
         {
             $task->delete();
+            $task->ratings()->delete();
             return redirect('/manager/task');
         }
 }

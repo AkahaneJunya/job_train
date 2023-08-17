@@ -14,5 +14,10 @@ class Task extends Model
     protected $fillable = [
         'name',
         'detail',
-        ];
+    ];
+    
+    public function ratings()
+        {
+            return $this->hasMany(Rating::class);
+        }
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('trainer_rate')->default(0);
             $table->unsignedTinyInteger('newcomer_rate')->default(0);
             $table->timestamps();
+            $table->softDeletes();
             
             $table->foreign('newcomer_id')->references('id')->on('newcomers')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('task_id')->references('id')->on('tasks')->onUpdate('cascade')->onDelete('cascade');
