@@ -82,6 +82,7 @@ class NewcomerController extends Controller
         {
             $newcomer->delete();
             $newcomer->user->delete();
+            $newcomer->ratings()->delete();
 
             return redirect('/manager/newcomer');
         }
