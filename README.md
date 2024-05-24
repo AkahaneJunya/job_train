@@ -7,7 +7,7 @@
 ##  概要
 アルバイトで新人教育をより効率的に行うために、業務の理解度を管理するアプリ。
 
-<a href="https://job-training-ac311910ddce.herokuapp.com/login" target="_blank">アプリへGO</a>
+<a href="https://job-training-ac311910ddce.herokuapp.com/" target="_blank">アプリへGO</a>
 
 ##  開発環境
 <b>使用言語：</b><br>
