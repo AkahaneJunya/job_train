@@ -1,66 +1,49 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1 align="center">アルバイト新人教育管理アプリ</h1>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+##  制作背景
+大学1年時から現在も継続中の飲食店でのアルバイトの経験から制作してみました。<br>
+新人教育の際に情報共有ができていないことが原因で効率が悪くなっていたため、Webアプリケーションで解決できないかと考えたことがきっかけです。
 
-## About Laravel
+##  概要
+アルバイトで新人教育をより効率的に行うために、業務の理解度を管理するアプリ。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<a href="https://job-training-ac311910ddce.herokuapp.com/login" target="_blank">アプリへGO</a>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+##  開発環境
+<b>使用言語：</b><br>
+- PHP
+- HTML
+- CSS(SCSS)
+- JavaScript(React)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<b>環境：</b><br>
+- Laravel
+- AWS
+- MySQL(MariaDB)
+- Github
 
-## Learning Laravel
+<b>デプロイ：</b><br>
+- Heroku
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+##  データ構成
+<b>「テーブル構成・リレーション」</b><br><br>
+![image](https://github.com/AkahaneJunya/job_train/assets/133526862/5c83eefc-1d92-44ae-8cb4-38c3ca0c3f95)　
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+##  機能
+- ログイン機能
+- 店長、教育係、新人新規登録、編集、削除機能
+- 業務新規登録、編集、削除機能
+- それぞれのバリデーション
+- 業務習熟度評価、更新機能
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+##  使い方
+<b>業務習熟度評価機能：</b><br>
+店長によって登録されたそれぞれの業務について、教育係はTrainer Rateで教育の進捗を管理し、新人はNewcomer Rateで自身の理解度の状況を管理することができます。
+これによって新人教育時の情報共有が容易になり、効率的に新人教育を進めることができます。
+![image](https://github.com/AkahaneJunya/job_train/assets/133526862/7dd0828f-ca98-426f-96ad-16ed91d75c4d)
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+##  今後の計画
+- 見た目の改善
+- 業務習熟度評価機能にコメントを追加
+- 業務習熟度の進捗をグラフで確認
